@@ -232,6 +232,53 @@
   }
   .video .meta .dur{font-variant-numeric:tabular-nums;color:var(--ink-faint);}
 
+  /* --- checklist --- */
+  .check{padding:8px 0 64px;}
+  .checkbox-card{
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);
+    padding:30px 32px;max-width:760px;
+  }
+  .check h2{font-size:clamp(21px,2.5vw,27px);margin:10px 0 6px;}
+  .check .hint{color:var(--ink-soft);font-size:15.5px;margin-bottom:22px;}
+  .check ul{list-style:none;margin:0;padding:0;display:grid;gap:2px;}
+  .check li{margin:0;}
+  .check label{
+    display:grid;grid-template-columns:22px 1fr;gap:13px;align-items:start;
+    padding:10px 10px 10px 8px;border-radius:var(--radius);cursor:pointer;
+    font-size:16px;line-height:1.45;transition:background .12s ease;
+  }
+  .check label:hover{background:var(--accent-wash);}
+  .check input{
+    appearance:none;-webkit-appearance:none;margin:2px 0 0;
+    width:20px;height:20px;border:1.5px solid var(--line);border-radius:3px;
+    background:var(--paper);cursor:pointer;position:relative;flex:none;
+    transition:background .12s ease, border-color .12s ease;
+  }
+  .check input:checked{background:var(--accent);border-color:var(--accent);}
+  .check input:checked::after{
+    content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;
+    border:solid var(--accent-ink);border-width:0 2px 2px 0;transform:rotate(42deg);
+  }
+  .check input:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .verdict{
+    margin-top:24px;padding-top:22px;border-top:1px solid var(--line);
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+  }
+  .verdict .say{font-size:16px;max-width:34em;}
+  .verdict .say b{font-family:"Onest",sans-serif;font-weight:600;}
+  .verdict .count{
+    font-family:"Onest",sans-serif;font-size:13px;color:var(--ink-faint);
+    font-variant-numeric:tabular-nums;letter-spacing:.02em;flex:none;
+  }
+  #verdict-btn{margin-top:18px;}
+  .lead-line{
+    font-family:"Onest",sans-serif;font-size:14px;font-weight:600;
+    color:var(--accent);letter-spacing:.01em;margin-bottom:6px;
+  }
+  .price-note{
+    margin-top:16px;font-size:15.5px;color:var(--ink-soft);
+  }
+
   /* --- steps --- */
   .steps{padding:64px 0;border-top:1px solid var(--line);background:var(--surface);}
   .steps .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:32px;}
@@ -329,6 +376,22 @@
   </div>
 </section>
 
+<section class="check">
+  <div class="wrap">
+    <div class="checkbox-card">
+      <div class="eyebrow">Короткая самопроверка</div>
+      <h2>Отметьте, что узнаёте</h2>
+      <p class="hint">Это не диагностика и не диагноз — просто способ за минуту понять, есть ли смысл разговаривать.</p>
+      <ul id="checklist"></ul>
+      <div class="verdict">
+        <p class="say" id="verdict-say">Отметьте пункты, которые про вашего ребёнка.</p>
+        <span class="count" id="verdict-count">отмечено 0 из 10</span>
+      </div>
+      <a class="btn" id="verdict-btn" href="#zapis" hidden>Записаться на диагностику</a>
+    </div>
+  </div>
+</section>
+
 <section class="steps">
   <div class="wrap">
     <div class="eyebrow">Как проходит работа</div>
@@ -336,7 +399,8 @@
       <div class="step">
         <div class="n">Шаг 1</div>
         <h3>Диагностика</h3>
-        <p><span class="todo">60–90</span> минут. Смотрю, какие функции сформированы, а какие нет. Вы уходите с понятной картиной и заключением, а не с «ну, позанимаемся».</p>
+        <p class="lead-line"><span class="todo">цена</span> · <span class="todo">60–90</span> минут</p>
+        <p>Смотрю, какие функции сформированы, а какие нет. Вы уходите с понятной картиной и письменным заключением, а не с «ну, позанимаемся».</p>
       </div>
       <div class="step">
         <div class="n">Шаг 2</div>
@@ -358,6 +422,7 @@
       <div class="eyebrow">Записаться</div>
       <h2>Начинаем с диагностики</h2>
       <p>Если вы узнали своего ребёнка хотя бы в одном пункте выше — приходите. По итогам диагностики я скажу прямо: нужна работа или нет, сколько она займёт и к чему мы придём.</p>
+      <p class="price-note">Диагностика — <span class="todo">цена</span>, <span class="todo">60–90</span> минут. Письменное заключение и план входят в стоимость.</p>
       <div class="actions">
         <a class="btn" href="#zapis">Записаться на диагностику</a>
         <a class="btn ghost" href="#zapis">Позвонить</a>
@@ -384,6 +449,7 @@ const items = [
       "Диагностика показывает, какие функции уже созрели, а какие нет — и что мы успеваем достроить до сентября."
     ],
     out: "Вы точно знаете, готов ребёнок или нет, и что делать за оставшееся время.",
+    cta: "Проверить готовность к школе",
     video: "Готов ли ребёнок к школе"
   },
   {
@@ -394,6 +460,7 @@ const items = [
       "Чаще всего не достроены функции, на которых письмо и чтение держатся: зрительное восприятие, пространство, моторика руки, слуховой разбор. Мы находим, какое звено не работает, и достраиваем именно его — вместо десятого круга прописей."
     ],
     out: "Буквы перестают «прыгать», чтение и письмо идут без слёз.",
+    cta: "Разобраться с почерком и чтением",
     video: "Буквы прыгают: чтение и письмо"
   },
   {
@@ -404,6 +471,7 @@ const items = [
       "Занятия идут через движение, ритм и правило игры. Так появляется способность удерживать программу действий — и себя внутри неё."
     ],
     out: "Ребёнок доводит начатое до конца сам, без стояния над душой.",
+    cta: "Понять, почему не получается усидеть",
     video: "Не сидит, не слушает"
   },
   {
@@ -414,6 +482,7 @@ const items = [
       "Это видно на диагностике и это тренируется: тонус, дыхание, режим нагрузки, специальные упражнения."
     ],
     out: "Ребёнок дотягивает до конца учебного дня, а выученное остаётся.",
+    cta: "Проверить, хватает ли ребёнку ресурса",
     video: "Учили весь вечер, утром как не было"
   },
   {
@@ -424,6 +493,7 @@ const items = [
       "Иногда звук «не идёт» не потому, что язык стоит не там, а потому что под ним не хватает базы. Тогда мы начинаем с базы."
     ],
     out: "Речь становится понятной — и держится, а не откатывается через месяц.",
+    cta: "Показать речь специалисту",
     video: "Речь: не только звуки"
   },
   {
@@ -434,6 +504,7 @@ const items = [
       "Не мотивацией и не контролем, а конкретными приёмами — и постепенным выведением взрослого из процесса."
     ],
     out: "Уроки укладываются в разумное время, и вы перестаёте сидеть рядом.",
+    cta: "Разобрать, на что уходит вечер",
     video: "Уроки до ночи"
   }
 ];
@@ -455,7 +526,7 @@ document.getElementById("list").innerHTML = items.map((it, i) => `
         <div>
           ${it.p.map(t => `<p>${esc(t)}</p>`).join("")}
           <div class="outcome"><b>К чему приходим</b>${esc(it.out)}</div>
-          <a class="btn" href="#zapis">Записаться на диагностику</a>
+          <a class="btn" href="#zapis">${esc(it.cta)}</a>
         </div>
         <div class="video">
           <div class="frame">
@@ -467,6 +538,43 @@ document.getElementById("list").innerHTML = items.map((it, i) => `
     </div>
   </details>
 `).join("");
+
+const checks = [
+  "Читает по слогам, хотя уже не первый класс",
+  "Пишет «как курица лапой», строчка уезжает вверх",
+  "Путает или зеркалит буквы, пропускает их даже при списывании",
+  "Не может усидеть за столом дольше десяти минут",
+  "Учили вечером — утром не помнит ничего",
+  "Уроки занимают больше двух часов",
+  "К третьему уроку «выключается», из школы приходит без сил",
+  "Говорит невнятно, путает звуки",
+  "Учитель говорит: «может, если захочет»",
+  "Скоро в школу, и вы не уверены, что он готов"
+];
+
+const ul = document.getElementById("checklist");
+ul.innerHTML = checks.map((t, i) => `
+  <li><label><input type="checkbox" data-check><span>${esc(t)}</span></label></li>
+`).join("");
+
+const say = document.getElementById("verdict-say");
+const cnt = document.getElementById("verdict-count");
+
+function verdict(n){
+  if (n === 0) return "Отметьте пункты, которые про вашего ребёнка.";
+  if (n < 3)   return "<b>Один-два пункта — ещё не повод для тревоги.</b> Понаблюдайте: если что-то из этого повторяется изо дня в день, приходите.";
+  if (n < 6)   return "<b>Три и больше — есть смысл прийти на диагностику.</b> Это не значит, что с ребёнком что-то не так. Это значит, что стоит понять причину, пока она не закрепилась.";
+  return "<b>Так живёт вся семья, и это лечится.</b> Чем раньше станет понятна причина, тем меньше придётся навёрстывать. Начните с диагностики.";
+}
+
+const vbtn = document.getElementById("verdict-btn");
+
+ul.addEventListener("change", () => {
+  const n = ul.querySelectorAll("[data-check]:checked").length;
+  say.innerHTML = verdict(n);
+  cnt.textContent = `отмечено ${n} из ${checks.length}`;
+  vbtn.hidden = n < 3;
+});
 </script>
 
 </body>
