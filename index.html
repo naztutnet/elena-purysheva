@@ -276,7 +276,7 @@
   }
   .certs .item{display:block;text-decoration:none;color:inherit;}
   .certs .thumb{
-    display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;
+    display:block;width:100%;aspect-ratio:1500/1090;object-fit:cover;object-position:center;
     border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);
     transition:border-color .15s ease, box-shadow .15s ease;
   }
@@ -458,8 +458,8 @@
       <h1>Готовлю детей к школе так, чтобы <span class="mark">учиться было легче</span>. И помогаю тем, кому уже трудно.</h1>
       <p class="lede">Очно и онлайн. Ниже — шесть ситуаций, с которыми ко мне приходят чаще всего. Найдите свою: внутри двухминутное видео о том, как это работает и к чему мы приходим.</p>
       <div class="actions">
-        <a class="btn" href="#zapis">Записаться на диагностику</a>
-        <a class="btn ghost" data-form>Бесплатная экспресс-консультация · 20 мин</a>
+        <a class="btn" data-form>Записаться на диагностику</a>
+        <a class="btn ghost" data-form="express">Бесплатная экспресс-консультация · 20 мин</a>
       </div>
       <p class="lede-small">За 20 минут разберёмся, что происходит с вашим ребёнком, и определим, нужна ли углублённая диагностика.</p>
     </div>
@@ -591,7 +591,7 @@
           <p class="price">Бесплатно</p>
         </div>
         <p>За 20 минут разберёмся, что происходит с вашим ребёнком, и определим, нужна ли углублённая диагностика.</p>
-        <a class="btn" data-form>Записаться</a>
+        <a class="btn" data-form="express">Записаться</a>
       </div>
 
       <div class="card">
@@ -720,7 +720,7 @@
       <p class="price-note">Диагностика — 5000 ₽, 120 минут. Письменное заключение входит в стоимость.</p>
       <div class="actions">
         <a class="btn" data-form>Записаться на диагностику</a>
-        <a class="btn ghost" data-form>Бесплатная экспресс-консультация · 20 мин</a>
+        <a class="btn ghost" data-form="express">Бесплатная экспресс-консультация · 20 мин</a>
       </div>
     </div>
   </div>
@@ -877,11 +877,14 @@ ul.addEventListener("change", () => {
   vbtn.hidden = n < 3;
 });
 
-// Ссылка на форму записи. Заменить на адрес Яндекс Формы, когда Елена её создаст.
-const FORM_URL = "#zapis";
+// Ссылки на формы записи (Яндекс Формы).
+const DIAG_FORM_URL = "https://forms.yandex.ru/u/67ab9761068ff0ee37fe8f41/";
+const EXPRESS_FORM_URL = "https://forms.yandex.ru/u/66cd801702848f0380e8dcbe/";
 document.querySelectorAll('[data-form]').forEach(a => {
-  a.setAttribute('href', FORM_URL);
-  if (FORM_URL.startsWith('http')) { a.target = '_blank'; a.rel = 'noopener'; }
+  const url = a.getAttribute('data-form') === 'express' ? EXPRESS_FORM_URL : DIAG_FORM_URL;
+  a.setAttribute('href', url);
+  a.target = '_blank';
+  a.rel = 'noopener';
 });
 </script>
 </body>
