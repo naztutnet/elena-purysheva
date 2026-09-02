@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Детский нейропсихолог и логопед. Подготовка к школе и помощь детям с трудностями в обучении. Очно и онлайн, дети 4–14 лет.">
+<meta name="description" content="Детский нейропсихолог и логопед. Подготовка к школе и помощь детям с трудностями в обучении. Очно и онлайн, дети 5–14 лет.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Пурышева Елена Евгеньевна — детский нейропсихолог и логопед">
 <meta property="og:description" content="Подготовка к школе и помощь детям с трудностями в обучении. Шесть ситуаций, с которыми приходят чаще всего.">
@@ -267,6 +267,47 @@
   .services .btn{margin-top:auto;align-self:flex-start;}
   @media (max-width:880px){ .services .cards{grid-template-columns:1fr;} }
 
+  /* --- certificates gallery --- */
+  .certs{padding:56px 0;border-bottom:1px solid var(--line);}
+  .certs .head{max-width:38em;}
+  .certs .head p{margin-top:10px;color:var(--ink-soft);font-size:15.5px;}
+  .certs .grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px;
+  }
+  .certs .item{display:block;text-decoration:none;color:inherit;}
+  .certs .thumb{
+    display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .certs .item:hover .thumb{border-color:var(--accent);box-shadow:var(--shadow);}
+  .certs .cap{
+    margin-top:9px;font-size:13.5px;color:var(--ink-soft);line-height:1.4;
+  }
+  .certs .cap b{display:block;font-family:"Onest",sans-serif;font-weight:600;font-size:13px;color:var(--ink);margin-bottom:2px;}
+  @media (max-width:880px){ .certs .grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .certs .grid{grid-template-columns:1fr 1fr;gap:12px;} }
+
+  /* --- reviews --- */
+  .reviews{padding:60px 0;border-bottom:1px solid var(--line);background:var(--surface);}
+  .reviews .head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+  .reviews .stat{
+    font-family:"Onest",sans-serif;font-size:14.5px;color:var(--ink-soft);white-space:nowrap;
+  }
+  .reviews .stat b{color:var(--ink);font-weight:600;}
+  .reviews .cards{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;
+  }
+  .reviews .card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px;
+    background:var(--paper);display:flex;flex-direction:column;gap:12px;
+  }
+  .reviews .stars{font-family:"Onest",sans-serif;font-size:13px;letter-spacing:.06em;color:var(--accent);}
+  .reviews .quote{font-size:15.5px;line-height:1.5;}
+  .reviews .who{font-family:"Onest",sans-serif;font-size:13px;color:var(--ink-faint);}
+  .reviews .more{margin-top:24px;font-family:"Onest",sans-serif;font-size:13.5px;}
+  @media (max-width:880px){ .reviews .cards{grid-template-columns:1fr;} }
+
   /* --- honest blocks --- */
   .honest{
     padding:56px 0;border-bottom:1px solid var(--line);
@@ -277,6 +318,8 @@
   .honest p{font-size:17.5px;}
   .honest p + p{margin-top:12px;color:var(--ink-soft);}
   .honest .quiet{color:var(--ink-soft);}
+  .honest.late{background:var(--paper);}
+  .honest.late h2{color:var(--accent);}
 
   .commit{padding:60px 0;border-top:1px solid var(--line);}
   .commit .cols{
@@ -368,7 +411,11 @@
   .cta .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;}
 
   footer{border-top:1px solid var(--line);padding:26px 0 44px;color:var(--ink-faint);font-family:"Onest",sans-serif;font-size:13px;}
-  footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+  footer .wrap{display:flex;flex-direction:column;gap:10px;}
+  footer .row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+  footer .legal{padding-top:10px;border-top:1px solid var(--line-soft);display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;}
+  footer .legal a{color:var(--ink-faint);text-decoration:underline;text-underline-offset:2px;}
+  footer .legal a:hover{color:var(--accent);}
 
   @media (max-width:880px){
     .hero .wrap,.about .wrap{grid-template-columns:1fr;gap:34px;}
@@ -389,7 +436,6 @@
 </style>
 </head>
 <body>
-
 
 <div class="draft">
   <div class="wrap">
@@ -430,6 +476,15 @@
   </div>
 </section>
 
+<section class="honest late">
+  <div class="wrap">
+    <div class="eyebrow">Первый вопрос, который мне задают</div>
+    <h2>«А нам не поздно?»</h2>
+    <p>Отвечаю честно: чем раньше — тем легче, это правда. Но «поздно» почти не бывает. Бывает «дольше» и «больше работы».</p>
+    <p>И ещё одно, что я говорю каждому родителю. Смотреть назад и искать виноватых бессмысленно. Ни вас, ни врачей, ни садик обвинять не в чем — почти все делают так, как умеют и как советуют вокруг. Сейчас важно другое: собраться вместе и помочь вашему ребёнку. Я помогу. Но нужна и ваша отдача.</p>
+  </div>
+</section>
+
 <section class="problems">
   <div class="wrap">
     <div class="sechead">
@@ -452,15 +507,58 @@
   <div class="wrap">
     <div class="text">
       <div class="eyebrow">Коротко обо мне</div>
-      <p>Я детский нейропсихолог и логопед. Работаю с детьми от 4 до 14 лет, очно и онлайн.</p>
-      <p>Я не «делаю с ребёнком уроки». Я смотрю, как работает его мозг: что уже сформировалось, а что ещё нет — и почему из-за этого не идёт чтение и письмо. <span class="todo">и почему решение задач «может» вызывать… — расшифровать правку</span></p>
-      <p>Сначала диагностика, потом программа под конкретного ребёнка. Универсальных программ не бывает.</p>
+      <p>Я детский нейропсихолог и логопед. Работаю с детьми от 5 до 14 лет, очно и онлайн.</p>
+      <p>Успешность в школе напрямую зависит от того, насколько созрел мозг к первому классу. Выявив зоны риска до школы, мы помогаем нервной системе дозреть и адаптироваться к нагрузкам, предотвращая будущие трудности с письмом, чтением и усидчивостью.</p>
+      <p>Если проблемы в школе уже начались — это не повод для паники, а сигнал к действию. Мозг ребёнка гибок и хорошо отзывается на правильные упражнения. Мы поможем укрепить его слабые стороны, устранить причину трудностей и вернуть уверенность в учёбе.</p>
+      <p>Сначала диагностика, потом программа под конкретного ребёнка. Универсальных маршрутов не бывает.</p>
     </div>
     <dl class="facts">
       <div class="fact"><dt>Образование</dt><dd>МГСУ, педагог-психолог, 2001</dd></div>
       <div class="fact"><dt>Дополнительно</dt><dd>МСПИ, учитель-логопед · МИРО, клинический психолог, нейропсихолог</dd></div>
       <div class="fact"><dt>Опыт</dt><dd>20 лет практики</dd></div>
     </dl>
+  </div>
+</section>
+
+<section class="certs">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Дипломы и сертификаты</div>
+      <p>Каждый диплом кликабелен — открывается в полном размере.</p>
+    </div>
+    <div class="grid">
+
+      <a class="item" href="img/certs/cert-5.jpg" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="img/certs/cert-5-thumb.jpg" alt="Диплом МГСУ, педагог-психолог, 2001">
+        <div class="cap"><b>МГСУ</b>Диплом о высшем образовании · педагог-психолог · 2001</div>
+      </a>
+
+      <a class="item" href="img/certs/cert-4.jpg" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="img/certs/cert-4-thumb.jpg" alt="Диплом МСПИ, Логопедия, учитель-логопед, 2019">
+        <div class="cap"><b>МСПИ</b>Проф. переподготовка «Логопедия» · квалификация «Учитель-логопед» · 2019</div>
+      </a>
+
+      <a class="item" href="img/certs/cert-6.jpg" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="img/certs/cert-6-thumb.jpg" alt="Диплом МИРО, клиническая медицинская психология, нейропсихолог, 2024">
+        <div class="cap"><b>МИРО</b>Проф. переподготовка «Клиническая (медицинская) психология» · квалификация «Клинический психолог (нейропсихолог)» · 1400 ч · 2024</div>
+      </a>
+
+      <a class="item" href="img/certs/cert-2.jpg" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="img/certs/cert-2-thumb.jpg" alt="Удостоверение МИРО, логопедический массаж, 2023">
+        <div class="cap"><b>МИРО</b>«Логопедический массаж в структуре индивидуального занятия» · 144 ч · 2023</div>
+      </a>
+
+      <a class="item" href="img/certs/cert-1.jpg" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="img/certs/cert-1-thumb.jpg" alt="Удостоверение, методы ранней нейропсихологической диагностики, 2024">
+        <div class="cap"><b>Институт нейропсихологии и нейрофизиологии развития ребёнка</b>«Методы ранней нейропсихологической диагностики и коррекции детей от 0 до 7 лет. Оценка готовности к школе» · 140 ч · 2024</div>
+      </a>
+
+      <a class="item" href="img/certs/cert-3.jpg" target="_blank" rel="noopener">
+        <img class="thumb" loading="lazy" src="img/certs/cert-3-thumb.jpg" alt="Удостоверение МСПИ, подготовка к школе, 2019">
+        <div class="cap"><b>МСПИ</b>«Подготовка детей старшего дошкольного возраста к обучению в школе» · 72 ч · 2019</div>
+      </a>
+
+    </div>
   </div>
 </section>
 
@@ -499,7 +597,7 @@
       <div class="card">
         <div class="card-top">
           <h3>Нейродиагностика</h3>
-          <p class="fmt">Очно или онлайн · 120 минут · 4–14 лет</p>
+          <p class="fmt">Очно или онлайн · 120 минут · 5–14 лет</p>
           <p class="price">5000 ₽</p>
         </div>
         <p>По итогам встречи вы получите письменное заключение с чётким планом действий.</p>
@@ -510,7 +608,7 @@
       <div class="card">
         <div class="card-top">
           <h3>Индивидуальное занятие</h3>
-          <p class="fmt">Очно или онлайн · 4–14 лет</p>
+          <p class="fmt">Очно или онлайн · 5–14 лет</p>
           <p class="price">45 мин — 2500 ₽<br>60 мин — 3000 ₽</p>
         </div>
         <p class="warn">Продолжительность занятия и всего курса зависит от результатов диагностики.</p>
@@ -544,6 +642,39 @@
         <p>Плюс короткие домашние задания. Промежуточный срез через 3 месяца — чтобы вы видели, что меняется.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="eyebrow">Что говорят родители</div>
+      </div>
+      <div class="stat"><b>4,7</b> · 13 отзывов на Яндекс Картах</div>
+    </div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">«Занимаемся с внуком (5 лет) почти год. Ребёнку интересно — всё в игровой форме. Между встречами всегда можно спросить совета».</p>
+        <div class="who">Надежда, бабушка ученика · Яндекс Карты</div>
+      </div>
+
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">«Уже после двух занятий стало меньше эмоциональных срывов, ребёнку легче удерживать внимание. Через семь месяцев — заметно лучше почерк, речь и память».</p>
+        <div class="who">Анна, мама двоих учеников · Яндекс Карты</div>
+      </div>
+
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">«Ребёнок почти не говорил. Через три месяца регулярных занятий — уже фразами, речь расширяется на глазах».</p>
+        <div class="who">Галина, мама ученика · Яндекс Карты</div>
+      </div>
+
+    </div>
+    <p class="more"><a href="https://yandex.ru/maps/org/logoped_neyropsikholog_purysheva_yelena/32750595869" target="_blank" rel="noopener">Читать все отзывы на Яндекс Картах →</a></p>
   </div>
 </section>
 
@@ -597,8 +728,15 @@
 
 <footer>
   <div class="wrap">
-    <div>Пурышева Елена Евгеньевна · детский нейропсихолог и логопед</div>
-    <div><span class="todo">телефон · Telegram · город</span></div>
+    <div class="row">
+      <div>Пурышева Елена Евгеньевна · детский нейропсихолог и логопед</div>
+      <div><span class="todo">телефон · Telegram · город</span></div>
+    </div>
+    <div class="legal">
+      <span>ИП Пурышева Елена Евгеньевна · ИНН 771596913274</span>
+      <a href="oferta.html">Договор оферты</a>
+      <a href="privacy.html">Политика конфиденциальности</a>
+    </div>
   </div>
 </footer>
 
@@ -746,6 +884,5 @@ document.querySelectorAll('[data-form]').forEach(a => {
   if (FORM_URL.startsWith('http')) { a.target = '_blank'; a.rel = 'noopener'; }
 });
 </script>
-
 </body>
 </html>
