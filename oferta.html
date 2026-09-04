@@ -58,6 +58,9 @@
   footer .legal{padding-top:10px;border-top:1px solid var(--line-soft);display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;}
   footer .legal a{color:var(--ink-faint);text-decoration:underline;text-underline-offset:2px;}
   footer .legal a:hover{color:var(--accent);}
+  footer .legal .brat{margin-left:auto;text-decoration:none;color:var(--ink-faint);}
+  footer .legal .brat::after{content:" ↗";opacity:.6;}
+  footer .legal .brat:hover{color:var(--accent);}
   footer .row a.fcontact{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line);}
   footer .row a.fcontact:hover{color:var(--accent);border-color:var(--accent);}
 </style>
@@ -141,6 +144,7 @@
       <a href="index.html">На главную</a>
       <a href="oferta.html">Договор оферты</a>
       <a href="privacy.html">Политика конфиденциальности</a>
+      <a class="brat" href="https://t.me/naz_tut_net" target="_blank" rel="noopener" title="Написать в Telegram">Сайт сделал мой брат</a>
     </div>
   </div>
 </footer>
