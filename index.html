@@ -118,7 +118,7 @@
     transition:transform .15s ease, filter .15s ease;
   }
   .btn:hover{filter:brightness(1.08);transform:translateY(-1px);}
-  .btn.ghost{background:transparent;color:var(--accent);border-color:var(--line);}
+  .btn.ghost{background:var(--surface);color:var(--accent);border-color:var(--accent);}
   .btn.ghost:hover{border-color:var(--accent);}
   .btn.sm{padding:9px 14px;font-size:13px;}
   a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
@@ -160,6 +160,8 @@
   .about .wrap{display:grid;grid-template-columns:1.35fr .85fr;gap:56px;align-items:start;}
   .about .text{display:flex;flex-direction:column;gap:16px;max-width:34em;}
   .about .text p+p{color:var(--ink-soft);}
+  .about .text b{color:var(--ink);font-weight:600;}
+  .about .text p.key{padding:14px 16px;background:var(--accent-wash);border-left:3px solid var(--accent);color:var(--ink);}
   .facts{display:flex;flex-direction:column;gap:0;margin-top:26px;}
   .fact{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:11px 0;border-top:1px solid var(--line-soft);font-size:15px;}
   .fact:last-child{border-bottom:1px solid var(--line-soft);}
@@ -174,6 +176,7 @@
   .problems{padding:64px 0 40px;}
   .sechead{max-width:36em;margin-bottom:34px;}
   .sechead h2{font-size:clamp(24px,3vw,32px);margin-top:10px;}
+  h2.sec{font-size:clamp(23px,2.8vw,30px);margin:8px 0 18px;}
   .sechead p{margin-top:12px;color:var(--ink-soft);}
 
   .list{border-top:1px solid var(--line);}
@@ -237,11 +240,10 @@
   .lede-small{margin-top:14px;font-size:15.5px;color:var(--ink-soft);max-width:32em;}
 
   .note-strip{
-    padding:26px 0;background:var(--accent-wash);
-    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:30px 0;background:var(--accent);color:var(--accent-ink);
   }
-  .note-strip p{max-width:62em;font-size:16.5px;}
-  .note-strip b{font-family:"Onest",sans-serif;font-weight:600;}
+  .note-strip p{max-width:62em;font-size:18px;line-height:1.5;}
+  .note-strip b{font-family:"Onest",sans-serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:block;font-size:13px;margin-bottom:6px;opacity:.85;}
 
   .services{padding:64px 0;border-top:1px solid var(--line);background:var(--surface);}
   .services-h{font-size:clamp(22px,2.7vw,30px);margin:10px 0 4px;}
@@ -424,8 +426,8 @@
 
   @media (max-width:880px){
     .hero .wrap,.about .wrap{grid-template-columns:1fr;gap:34px;}
-    .portrait{aspect-ratio:16/10;}
-    .portrait img{object-position:center 20%;}
+    .portrait{aspect-ratio:934/1400;max-width:400px;}
+    .portrait img{object-position:center top;}
     .steps .grid{grid-template-columns:1fr;}
     details.item > summary{grid-template-columns:1fr 30px;gap:10px;padding:20px 0;}
     .tag{grid-column:1 / -1;padding-top:0;}
@@ -436,6 +438,10 @@
   }
   @media (max-width:560px){
     body{font-size:17px;}
+    .about{padding:44px 0 36px;}
+    .facts{margin-top:14px;}
+    .certs{padding:40px 0 48px;}
+    .cta{padding:56px 0 56px;}
     .hero .lede{font-size:17.5px;}
     .honest p{font-size:17.5px;}
     .wrap{padding:0 20px;}
@@ -444,13 +450,6 @@
 </style>
 </head>
 <body>
-
-<div class="draft">
-  <div class="wrap">
-    <b>Прототип v1.</b>
-    <span>Тексты — черновик на согласование, видео — заглушки, кнопки ведут на Яндекс Форму — ссылки пока нет. Пунктиром отмечено то, что нужно от Елены.</span>
-  </div>
-</div>
 
 <header class="bar">
   <div class="wrap">
@@ -467,7 +466,7 @@
       <p class="lede">Очно и онлайн. Ниже — шесть ситуаций, с которыми ко мне приходят чаще всего. Найдите свою: внутри двухминутное видео о том, как это работает и к чему мы приходим.</p>
       <div class="actions">
         <a class="btn" data-form>Записаться на диагностику</a>
-        <a class="btn ghost" data-form="express">Бесплатная экспресс-консультация · 20 мин</a>
+        <a class="btn ghost" data-form="express">Записаться на бесплатную консультацию · 20 мин</a>
       </div>
       <p class="lede-small">За 20 минут разберёмся, что происходит с вашим ребёнком, и определим, нужна ли углублённая диагностика.</p>
     </div>
@@ -507,18 +506,19 @@
 
 <section class="note-strip">
   <div class="wrap">
-    <p><b>Важно.</b> Ни одна из этих трудностей не уходит за неделю и не уходит за месяц. Любой, кто обещает быстро, либо не понимает, с чем имеет дело, либо вводит вас в заблуждение.</p>
+    <p><b>Важно</b> Ни одна из этих трудностей не уходит за неделю и не уходит за месяц. Любой, кто обещает быстро, либо не понимает, с чем имеет дело, либо вводит вас в заблуждение.</p>
   </div>
 </section>
 
 <section class="about">
   <div class="wrap">
     <div class="text">
-      <div class="eyebrow">Коротко обо мне</div>
+      <div class="eyebrow">Обо мне</div>
+      <h2 class="sec">Коротко обо мне</h2>
       <p>Я детский нейропсихолог и логопед. Работаю с детьми от 5 до 14 лет, очно и онлайн.</p>
-      <p>Успешность в школе напрямую зависит от того, насколько созрел мозг к первому классу. Выявив зоны риска до школы, мы помогаем нервной системе дозреть и адаптироваться к нагрузкам, предотвращая будущие трудности с письмом, чтением и усидчивостью.</p>
+      <p><b>Успешность в школе напрямую зависит от того, насколько созрел мозг к первому классу.</b> Выявив зоны риска до школы, мы помогаем нервной системе дозреть и адаптироваться к нагрузкам, предотвращая будущие трудности с письмом, чтением и усидчивостью.</p>
       <p>Если проблемы в школе уже начались — это не повод для паники, а сигнал к действию. Мозг ребёнка гибок и хорошо отзывается на правильные упражнения. Мы поможем укрепить его слабые стороны, устранить причину трудностей и вернуть уверенность в учёбе.</p>
-      <p>Сначала диагностика, потом программа под конкретного ребёнка. Универсальных маршрутов не бывает.</p>
+      <p class="key"><b>Сначала диагностика, потом программа под конкретного ребёнка.</b> Универсальных маршрутов не бывает.</p>
     </div>
     <dl class="facts">
       <div class="fact"><dt>Образование</dt><dd>МГСУ, педагог-психолог, 2001</dd></div>
@@ -531,7 +531,8 @@
 <section class="certs">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Дипломы и сертификаты</div>
+      <div class="eyebrow">Документы</div>
+      <h2 class="sec">Дипломы и сертификаты</h2>
       <p>Каждый диплом кликабелен — открывается в полном размере.</p>
     </div>
     <div class="grid">
@@ -630,7 +631,8 @@
 
 <section class="steps">
   <div class="wrap">
-    <div class="eyebrow">Как проходит работа</div>
+    <div class="eyebrow">Три шага</div>
+    <h2 class="sec">Как проходит работа</h2>
     <div class="grid">
       <div class="step">
         <div class="n">Шаг 1</div>
@@ -657,7 +659,8 @@
   <div class="wrap">
     <div class="head">
       <div>
-        <div class="eyebrow">Что говорят родители</div>
+        <div class="eyebrow">Отзывы</div>
+        <h2 class="sec" style="margin-bottom:0">Что говорят родители</h2>
       </div>
       <div class="stat"><b>4,7</b> · 13 отзывов на Яндекс Картах</div>
     </div>
@@ -688,7 +691,8 @@
 
 <section class="commit">
   <div class="wrap">
-    <div class="eyebrow">Честно, до того как вы решите</div>
+    <div class="eyebrow">Честно</div>
+    <h2 class="sec">До того как вы решите</h2>
     <div class="cols">
 
       <div class="col">
@@ -728,7 +732,7 @@
       <p class="price-note">Диагностика — 5000 ₽, 120 минут. Письменное заключение входит в стоимость.</p>
       <div class="actions">
         <a class="btn" data-form>Записаться на диагностику</a>
-        <a class="btn ghost" data-form="express">Бесплатная экспресс-консультация · 20 мин</a>
+        <a class="btn ghost" data-form="express">Записаться на бесплатную консультацию · 20 мин</a>
       </div>
     </div>
   </div>
