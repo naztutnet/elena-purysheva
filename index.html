@@ -36,6 +36,8 @@
     padding:16px 26px;border:1px solid var(--terra);transition:background .15s;
   }
   .btn:hover{background:var(--terra-dk);}
+  .btn.ghost{background:transparent;color:var(--terra);border-color:var(--terra);}
+  .btn.ghost:hover{background:var(--terra);color:#fff;}
   .link{color:var(--terra);text-decoration:none;border-bottom:1px solid rgba(139,76,56,.35);font-weight:500;}
   .link:hover{border-color:var(--terra);}
   .muted{color:var(--soft);}
@@ -58,9 +60,10 @@
   .hero .text{display:flex;flex-direction:column;justify-content:center;padding:80px 8vw 80px 6vw;}
   .hero h1{font-size:clamp(32px,3.5vw,52px);max-width:15em;}
   .hero .lede{margin-top:26px;font-size:18px;max-width:30em;color:var(--ink);}
-  .hero .sub{margin-top:16px;font-size:15px;color:var(--soft);max-width:34em;line-height:1.55;}
+  .hero .sub{margin-top:14px;font-size:16px;color:var(--soft);max-width:34em;line-height:1.55;}
+  .hero .sub b{color:var(--ink);font-weight:600;}
   .hero .creds{margin-top:22px;font-size:12.5px;letter-spacing:.04em;color:var(--faint);max-width:32em;padding-top:18px;border-top:1px solid var(--line);}
-  .hero .actions{margin-top:38px;display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
+  .hero .actions{margin-top:34px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
   .hero .actions .link{font-size:14px;}
 
   /* dark statement */
@@ -318,11 +321,12 @@
   <div class="text">
     <div class="eyebrow">Детский нейропсихолог и логопед · Москва и онлайн</div>
     <h1 style="margin-top:22px">Готовлю детей к школе так, чтобы учиться было легче — и помогаю тем, кому уже трудно</h1>
-    <p class="lede">Успешность в школе зависит от того, насколько созрел мозг к первому классу. Сначала диагностика — потом программа под конкретного ребёнка.</p>
-    <p class="sub">Выявив зоны риска до школы, мы помогаем нервной системе дозреть и адаптироваться к нагрузкам, предотвращая будущие трудности с письмом, чтением и усидчивостью. Если проблемы в школе уже начались — это не повод для паники, а сигнал к действию: мозг ребёнка гибок и хорошо отзывается на правильные упражнения.</p>
+    <p class="lede">Успешность в школе зависит от того, насколько созрел мозг к первому классу.</p>
+    <p class="sub"><b>Выявив зоны риска до школы,</b> мы помогаем нервной системе дозреть и адаптироваться к нагрузкам, предотвращая будущие трудности с письмом, чтением и усидчивостью.</p>
+    <p class="sub"><b>Если проблемы в школе уже начались</b> — это не повод для паники, а сигнал к действию: мозг ребёнка гибок и хорошо отзывается на правильные упражнения.</p>
     <div class="actions">
       <a class="btn" data-form>Записаться на диагностику</a>
-      <a class="link" data-form="express">Бесплатная консультация · 20 мин →</a>
+      <a class="btn ghost" data-form="express">Записаться на бесплатную консультацию (20 мин)</a>
     </div>
   </div>
 </section>
