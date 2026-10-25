@@ -7,11 +7,16 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Елена Пурышева, детский нейропсихолог и логопед">
 <meta property="og:description" content="Подготовка к школе и помощь при трудностях в обучении. Дети от 5 до 14 лет, Москва и онлайн. Сначала диагностика, потом программа под ребёнка.">
-<meta property="og:image" content="https://elenapurysheva.ru/img/og.jpg">
+<meta property="og:url" content="https://elenapurysheva.ru/">
+<meta property="og:image" content="https://elenapurysheva.ru/img/og2.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="Детский нейропсихолог и логопед в Москве и онлайн. Подготовка к школе и помощь при трудностях в обучении: диагностика, программа под ребёнка, занятия. Дети от 5 до 14 лет.">
+<link rel="canonical" href="https://elenapurysheva.ru/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Елена Пурышева, детский нейропсихолог и логопед","url":"https://elenapurysheva.ru/","image":"https://elenapurysheva.ru/img/og2.jpg","description":"Подготовка к школе и помощь при трудностях в обучении. Дети от 5 до 14 лет, Москва и онлайн.","telephone":"+7 916 554-15-58","email":"elena@purysheva.ru","address":{"@type":"PostalAddress","addressLocality":"Москва","addressCountry":"RU"},"areaServed":["Москва","Онлайн"],"priceRange":"от 2500 ₽","founder":{"@type":"Person","name":"Елена Евгеньевна Пурышева","jobTitle":"Детский нейропсихолог и логопед"},"sameAs":["https://yandex.ru/maps/org/logoped_neyropsikholog_purysheva_yelena/32750595869"]}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
@@ -98,7 +103,13 @@
 
   /* problems */
   .problems .grid{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;column-gap:64px;}
-  .problems details{border-top:1px solid var(--line);padding:30px 0 34px;}
+  .problems details{border-top:1px solid var(--line);padding:30px 0 34px;scroll-margin-top:84px;}
+  .problems .two{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;column-gap:64px;row-gap:14px;max-width:none;}
+  .problems .two p{font-size:16.5px;color:var(--soft);line-height:1.55;}
+  .problems .two b{color:var(--ink);font-weight:600;}
+  .hero .trust{margin-top:22px;font-size:14px;color:var(--faint);max-width:32em;}
+  .hero .trust a{color:inherit;text-decoration-color:var(--line);text-underline-offset:3px;}
+  @media (max-width:700px){ .problems .two{grid-template-columns:1fr;} }
   .problems details:nth-last-child(-n+2){border-bottom:1px solid var(--line);}
   .problems summary{list-style:none;cursor:pointer;}
   .problems summary::-webkit-details-marker{display:none;}
@@ -364,12 +375,12 @@
     <div class="eyebrow">Детский нейропсихолог и логопед, Москва и онлайн</div>
     <h1 style="margin-top:22px">Готовлю детей к школе так, чтобы учиться было легче, и помогаю тем, кому уже трудно</h1>
     <p class="lede">Успешность в школе зависит от того, насколько созрел мозг к первому классу.</p>
-    <p class="sub"><b>Если найти зоны риска до школы,</b> нервной системе можно помочь дозреть и привыкнуть к нагрузкам. Тогда трудностей с письмом, чтением и усидчивостью потом будет намного меньше.</p>
-    <p class="sub"><b>Если проблемы в школе уже начались,</b> паниковать не нужно. Пора действовать: мозг ребёнка гибкий и хорошо отзывается на правильные упражнения.</p>
     <div class="actions">
       <a class="btn" data-form>Записаться на диагностику</a>
       <a class="btn ghost" data-form="express">Записаться на бесплатную консультацию (20 мин)</a>
+      <a class="link" href="https://wa.me/79165541558" target="_blank" rel="noopener">или написать в WhatsApp</a>
     </div>
+    <p class="trust">20 лет практики с детьми, <a href="#reviews">4,7 на Яндекс Картах</a>, очно в Москве и онлайн</p>
   </div>
 </section>
 
@@ -377,7 +388,11 @@
   <div class="wrap">
     <div class="eyebrow">Найдите свою ситуацию</div>
     <h2 class="big">С чем ко мне приходят <em>чаще всего</em></h2>
-    <p class="intro strong">Откройте свой пункт. В каждом есть короткое объяснение и видео чуть больше минуты: как это устроено, что мы делаем и к чему приходим.</p>
+    <div class="two">
+      <p><b>Если найти зоны риска до школы,</b> нервной системе можно помочь дозреть и привыкнуть к нагрузкам. Тогда трудностей с письмом, чтением и усидчивостью потом будет намного меньше.</p>
+      <p><b>Если проблемы в школе уже начались,</b> паниковать не нужно. Пора действовать: мозг ребёнка гибкий и хорошо отзывается на правильные упражнения.</p>
+    </div>
+    <p class="intro strong" style="margin-top:28px">Откройте свой пункт. В каждом есть короткое объяснение и видео чуть больше минуты: как это устроено, что мы делаем и к чему приходим.</p>
     <div class="grid" id="list"></div>
   </div>
 </section>
@@ -563,7 +578,7 @@
 <script>
 const items = [
   {
-    tag: "Подготовка к школе",
+    id: "shkola", tag: "Подготовка к школе",
     q: "«Скоро в школу, а я не понимаю, готов он или нет»",
     p: [
       "Читать и считать до ста ещё не значит быть готовым к школе. Готовность видна в другом: может ли мозг удержать инструкцию, довести дело до конца и не развалиться через десять минут. Ребёнок может знать все буквы и при этом быть не готовым. И наоборот.",
@@ -574,7 +589,7 @@ const items = [
     video: "Готов ли ребёнок к школе", src: "rolik01", dur: "1:26"
   },
   {
-    tag: "Чтение и письмо",
+    id: "chtenie", tag: "Чтение и письмо",
     q: "«Читает по слогам, буквы путает, пишет как курица лапой»",
     p: [
       "Пропуски букв, зеркальное «Я», уезжающая строчка, чтение по слогам после второго класса редко объясняются ленью и почти никогда тем, что «мало занимались».",
@@ -585,7 +600,7 @@ const items = [
     video: "Буквы прыгают: чтение и письмо", src: "rolik02", dur: "1:24"
   },
   {
-    tag: "Внимание и саморегуляция",
+    id: "vnimanie", tag: "Внимание и саморегуляция",
     q: "«Не сидит, не слушает, отвлекается на всё подряд»",
     p: [
       "Ребёнок не может «просто постараться». За усидчивость и самоконтроль отвечают конкретные структуры мозга, и созревают они в свой срок. Пока они не готовы, требования и наказания не работают. Работает только то, что эти структуры достраивает.",
@@ -596,7 +611,7 @@ const items = [
     video: "Не сидит, не слушает", src: "rolik03", dur: "1:13"
   },
   {
-    tag: "Память и утомляемость",
+    id: "pamyat", tag: "Память и утомляемость",
     q: "«Учили весь вечер, а утром как не было»",
     p: [
       "Если ребёнок «выключается» к третьему уроку, а выученное вчера исчезает, дело чаще в ресурсе. Память тут обычно ни при чём. Мозгу не хватает энергии удерживать нагрузку, и он экономит на том, что дороже всего: на внимании и запоминании.",
@@ -607,7 +622,7 @@ const items = [
     video: "Учили весь вечер, а утром как не было", src: "rolik04", dur: "1:16"
   },
   {
-    tag: "Речь",
+    id: "rech", tag: "Речь",
     q: "«Говорит нечётко, плохо читает или пишет с ошибками»",
     p: [
       "Логопедическая работа не заканчивается постановкой звуков. Речь опирается на слух, дыхание, моторику и на то, как ребёнок вообще управляет собой. Поэтому я смотрю на неё сразу с двух сторон, как логопед и как нейропсихолог.",
@@ -618,7 +633,7 @@ const items = [
     video: "Речь: не только звуки", src: "rolik05", dur: "1:18"
   },
   {
-    tag: "Учебная деятельность",
+    id: "uroki", tag: "Учебная деятельность",
     q: "«Уроки до ночи и со слезами»",
     p: [
       "Домашка на четыре часа почти никогда не связана с объёмом заданий. Ребёнок не умеет начать, спланировать, удержать цель и проверить себя. Этому не учат в школе: это отдельные навыки, и они ставятся отдельно.",
@@ -631,7 +646,7 @@ const items = [
 ];
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 document.getElementById("list").innerHTML = items.map((it, i) => `
-  <details>
+  <details id="${it.id}">
     <summary>
       <span class="tag">${esc(it.tag)}</span>
       <h3>${esc(it.q)}</h3>
@@ -668,6 +683,19 @@ document.getElementById("list").innerHTML = items.map((it, i) => `
     const d = v.closest('details');
     if (d) d.addEventListener('toggle', () => { if (!d.open) v.pause(); });
   });
+})();
+
+// --- ссылка на проблему: elenapurysheva.ru/#rech раскрывает нужный блок ---
+(() => {
+  const openFromHash = () => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const d = id && document.getElementById(id);
+    if (!d || d.tagName !== 'DETAILS') return;
+    d.open = true;
+    requestAnimationFrame(() => d.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  };
+  window.addEventListener('hashchange', openFromHash);
+  if (location.hash) setTimeout(openFromHash, 60);
 })();
 
 const checks = [
