@@ -319,6 +319,15 @@
   .problems .video .end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
     padding:20px;text-align:center;background:rgba(248,245,239,.94);}
   .problems .video .end[hidden]{display:none;}
+  .problems .video .vplay{position:absolute;left:12px;bottom:12px;display:flex;align-items:center;gap:9px;padding:4px 14px 4px 4px;border:0;border-radius:999px;
+    background:rgba(255,255,255,.94);color:var(--ink);font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;box-shadow:0 4px 18px rgba(26,23,20,.16);transition:transform .15s;}
+  .problems .video .vplay:hover{transform:scale(1.04);}
+  .problems .video .vplay i{width:34px;height:34px;border-radius:50%;background:var(--terra);display:flex;align-items:center;justify-content:center;}
+  .problems .video .vplay svg{fill:#fff;margin-left:2px;width:12px;height:14px;}
+  .problems .video .vplay small{font-size:inherit;}
+  .problems .video .vplay time{font-weight:500;color:var(--faint);margin-left:4px;}
+  .problems .video.on .vplay{display:none;}
+
   .problems .video .end p{margin:0;font-size:17px;font-weight:600;color:var(--ink);max-width:22em;}
   .problems .video .end .btn{margin:0;}
   .problems .video .end .replay{background:none;border:0;color:var(--soft);font:inherit;font-size:14px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
@@ -562,7 +571,7 @@ const items = [
     ],
     out: "Вы точно знаете, готов ребёнок или нет, и что делать за оставшееся время.",
     cta: "Проверить готовность к школе",
-    video: "Готов ли ребёнок к школе", src: "rolik01"
+    video: "Готов ли ребёнок к школе", src: "rolik01", dur: "1:26"
   },
   {
     tag: "Чтение и письмо",
@@ -573,7 +582,7 @@ const items = [
     ],
     out: "Буквы перестают «прыгать», чтение и письмо идут без слёз.",
     cta: "Разобраться с почерком и чтением",
-    video: "Буквы прыгают: чтение и письмо", src: "rolik02"
+    video: "Буквы прыгают: чтение и письмо", src: "rolik02", dur: "1:24"
   },
   {
     tag: "Внимание и саморегуляция",
@@ -584,7 +593,7 @@ const items = [
     ],
     out: "Ребёнок доводит начатое до конца сам, без стояния над душой.",
     cta: "Понять, почему не получается усидеть",
-    video: "Не сидит, не слушает", src: "rolik03"
+    video: "Не сидит, не слушает", src: "rolik03", dur: "1:13"
   },
   {
     tag: "Память и утомляемость",
@@ -595,7 +604,7 @@ const items = [
     ],
     out: "Ребёнок дотягивает до конца учебного дня, а выученное остаётся.",
     cta: "Проверить, хватает ли ребёнку ресурса",
-    video: "Учили весь вечер, а утром как не было", src: "rolik04"
+    video: "Учили весь вечер, а утром как не было", src: "rolik04", dur: "1:16"
   },
   {
     tag: "Речь",
@@ -606,7 +615,7 @@ const items = [
     ],
     out: "Ребёнок чище говорит, грамотнее пишет, легче запоминает и пересказывает.",
     cta: "Показать речь специалисту",
-    video: "Речь: не только звуки", src: "rolik05"
+    video: "Речь: не только звуки", src: "rolik05", dur: "1:18"
   },
   {
     tag: "Учебная деятельность",
@@ -617,7 +626,7 @@ const items = [
     ],
     out: "Уроки укладываются в разумное время, и вы перестаёте сидеть рядом.",
     cta: "Разобрать, на что уходит вечер",
-    video: "Уроки до ночи", src: "rolik06"
+    video: "Уроки до ночи", src: "rolik06", dur: "1:13"
   }
 ];
 const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
@@ -632,7 +641,8 @@ document.getElementById("list").innerHTML = items.map((it, i) => `
       ${it.p.map(t => `<p>${esc(t)}</p>`).join("")}
       <div class="out"><b>К чему приходим</b>${esc(it.out)}</div>
       ${it.src ? `<div class="video has">
-        <video src="video/${it.src}.mp4" poster="video/${it.src}.jpg" controls preload="none" playsinline></video>
+        <video src="video/${it.src}.mp4" poster="video/${it.src}.jpg" preload="none" playsinline></video>
+        <button type="button" class="vplay" aria-label="Смотреть ролик"><i><svg width="14" height="16" viewBox="0 0 16 18"><path d="M1 1l14 8-14 8z"/></svg></i><small>Смотреть${it.dur ? ` <time>${it.dur}</time>` : ""}</small></button>
         <div class="end" hidden>
           <p>Хотите разобраться, что происходит с вашим ребёнком?</p>
           <a class="btn" data-form href="#zapis">Записаться на диагностику</a>
@@ -648,6 +658,10 @@ document.getElementById("list").innerHTML = items.map((it, i) => `
   const vids = [...document.querySelectorAll('.problems .video video')];
   vids.forEach(v => {
     const box = v.parentNode, end = box.querySelector('.end');
+    const pb = box.querySelector('.vplay');
+    if (pb) pb.addEventListener('click', () => { box.classList.add('on'); v.controls = true; v.play(); });
+    v.addEventListener('click', () => { if (pb && !box.classList.contains('on')) pb.click(); });
+    v.addEventListener('playing', () => { box.classList.add('on'); v.controls = true; });
     v.addEventListener('play', () => { end.hidden = true; vids.forEach(o => { if (o !== v) o.pause(); }); });
     v.addEventListener('ended', () => { end.hidden = false; });
     end.querySelector('.replay').addEventListener('click', () => { end.hidden = true; v.currentTime = 0; v.play(); });
