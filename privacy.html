@@ -65,6 +65,28 @@
   footer .row a.fcontact:hover{color:var(--accent);border-color:var(--accent);}
 footer .sep{display:inline-block;width:18px;}
 </style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){
+m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113791478', 'ym');
+ym(113791478, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113791478" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<style>
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:640px;margin:0 auto;background:#1C1A17;color:#F3EFE8;padding:14px 16px 14px 20px;border-radius:14px;display:flex;gap:16px;align-items:center;font-size:14px;line-height:1.45;box-shadow:0 8px 30px rgba(0,0,0,.18);font-family:"Inter","Helvetica Neue",Arial,sans-serif;}
+.cookie[hidden]{display:none!important;}
+.cookie a{color:inherit;}
+.cookie button{flex:none;border:0;background:#F3EFE8;color:#1C1A17;font:inherit;font-weight:600;padding:9px 16px;border-radius:10px;cursor:pointer;}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body>
 
@@ -177,10 +199,14 @@ footer .sep{display:inline-block;width:18px;}
     <p>10.2. Оператор до подачи вышеуказанного уведомления, обязан получить от органов власти иностранного государства, иностранных физических лиц, иностранных юридических лиц, которым планируется трансграничная передача персональных данных, соответствующие сведения.</p>
     <h2>11. Конфиденциальность персональных данных</h2>
     <p>Оператор и иные лица, получившие доступ к персональным данным, обязаны не раскрывать третьим лицам и не распространять персональные данные без согласия субъекта персональных данных, если иное не предусмотрено федеральным законом.</p>
-    <h2>12. Заключительные положения</h2>
-    <p>12.1. Пользователь может получить любые разъяснения по интересующим вопросам, касающимся обработки его персональных данных, обратившись к Оператору с помощью электронной почты <a href="mailto:elena@purysheva.ru">elena@purysheva.ru</a>.</p>
-    <p>12.2. В данном документе будут отражены любые изменения политики обработки персональных данных Оператором. Политика действует бессрочно до замены ее новой версией.</p>
-    <p>12.3. Актуальная версия Политики в свободном доступе расположена в сети Интернет по адресу https://elenapurysheva.ru/privacy.html.</p>
+    <h2 id="cookie">12. Файлы cookie и Яндекс Метрика</h2>
+    <p>12.1. На сайте работает сервис веб-аналитики Яндекс Метрика (ООО «ЯНДЕКС»). Он использует файлы cookie и собирает обезличенные данные о посещениях: какие страницы открыты, сколько длилось посещение, с какого устройства и из какого источника пришёл посетитель, как он пользовался страницей.</p>
+    <p>12.2. Эти данные нужны Оператору, чтобы понимать, какие материалы сайта полезны посетителям, и улучшать сайт. Оператор не использует их, чтобы установить личность посетителя.</p>
+    <p>12.3. Посетитель может отключить файлы cookie в настройках своего браузера. Часть функций сайта при этом может работать некорректно.</p>
+    <h2>13. Заключительные положения</h2>
+    <p>13.1. Пользователь может получить любые разъяснения по интересующим вопросам, касающимся обработки его персональных данных, обратившись к Оператору с помощью электронной почты <a href="mailto:elena@purysheva.ru">elena@purysheva.ru</a>.</p>
+    <p>13.2. В данном документе будут отражены любые изменения политики обработки персональных данных Оператором. Политика действует бессрочно до замены ее новой версией.</p>
+    <p>13.3. Актуальная версия Политики в свободном доступе расположена в сети Интернет по адресу https://elenapurysheva.ru/privacy.html.</p>
   </div>
 </main>
 
@@ -199,5 +225,21 @@ footer .sep{display:inline-block;width:18px;}
   </div>
 </footer>
 
+<div class="cookie" id="cookie" hidden>
+  <span>Сайт использует cookie и Яндекс Метрику, чтобы понимать, что полезно родителям. Подробнее в <a href="privacy.html#cookie">политике конфиденциальности</a>.</span>
+  <button type="button" id="cookie-ok">Понятно</button>
+</div>
+<script>
+(() => {
+  const box = document.getElementById('cookie');
+  let seen = false;
+  try { seen = localStorage.getItem('cookie_ok') === '1'; } catch (e) {}
+  if (!seen) box.hidden = false;
+  document.getElementById('cookie-ok').addEventListener('click', () => {
+    box.hidden = true;
+    try { localStorage.setItem('cookie_ok', '1'); } catch (e) {}
+  });
+})();
+</script>
 </body>
 </html>
