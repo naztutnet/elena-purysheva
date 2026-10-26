@@ -598,8 +598,8 @@ ym(113791478, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLa
     <div class="eyebrow">Как проходит работа</div>
     <h2>Три шага от «что-то не так» к понятному плану</h2>
     <div class="grid">
-      <div class="card"><div class="pic"><img src="img/steps/s1.jpg" alt="" loading="lazy"></div><div class="n">Шаг 1</div><h3>Диагностика</h3><div class="fmt">120 минут, очно или онлайн, 5000 ₽</div><p>Смотрю, какие функции сформированы, а какие нет: внимание, память, речь, саморегуляция, готовность руки к письму.</p><p class="res"><b>В результате</b> вы понимаете, что именно у ребёнка получается, а что пока нет, и уходите с письменным заключением, а не с «ну, позанимаемся».</p></div>
-      <div class="card"><div class="pic"><img src="img/steps/s2.jpg" alt="" loading="lazy"></div><div class="n">Шаг 2</div><h3>Программа</h3><div class="fmt">Под конкретного ребёнка</div><p>Составляю маршрут по итогам диагностики. Сразу говорю прямо, сколько времени это займёт и что будет результатом.</p><p class="res"><b>В результате</b> у вас на руках понятный план: сколько занятий, как часто, что делать дома и как мы поймём, что стало лучше.</p></div>
+      <div class="card"><div class="pic"><img src="img/steps/s1.jpg" alt="" loading="lazy"></div><div class="n">Шаг 1</div><h3>Диагностика</h3><div class="fmt">120 минут, очно или онлайн</div><p>Смотрю, какие функции сформированы, а какие нет: внимание, память, речь, саморегуляция, готовность руки к письму.</p><p class="res"><b>В результате</b> вы понимаете, что именно у ребёнка получается, а что пока нет, и уходите с письменным заключением, а не с «ну, позанимаемся».</p></div>
+      <div class="card"><div class="pic"><img src="img/steps/s2.jpg" alt="" loading="lazy"></div><div class="n">Шаг 2</div><h3>Программа</h3><div class="fmt">Под конкретного ребёнка</div><p>Составляю маршрут по итогам диагностики. Сразу говорю прямо, сколько времени займёт работа, и что будет результатом.</p><p class="res"><b>В результате</b> у вас на руках понятный план: сколько занятий, как часто, что делать дома, и как мы поймём, что стало лучше.</p></div>
       <div class="card"><div class="pic"><img src="img/steps/s3.jpg" alt="" loading="lazy"></div><div class="n">Шаг 3</div><h3>Занятия</h3><div class="fmt">2 раза в неделю, 45 или 60 минут</div><p>Плюс короткие домашние задания на 10–15 минут. После каждого занятия я на связи: что делали, что получилось.</p><p class="res"><b>В результате</b> первые изменения обычно к десятому занятию, промежуточный срез через 3 месяца, чтобы вы видели, что меняется.</p></div>
     </div>
   </div>
@@ -1068,8 +1068,7 @@ function prefillText(link){
 }
 function formUrl(kind, link){
   const base = kind === 'express' ? EXPRESS_FORM_URL : DIAG_FORM_URL;
-  const text = link ? prefillText(link) : '';
-  return text ? base + '?' + FORM_FIELD[kind] + '=' + encodeURIComponent(text) : base;
+  return base; // предзаполнение отключено по просьбе Елены
 }
 document.querySelectorAll('[data-form]').forEach(a => {
   const kind = a.getAttribute('data-form') === 'express' ? 'express' : 'diag';
